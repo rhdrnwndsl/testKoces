@@ -180,6 +180,7 @@ public class AppToAppActivity extends AppCompatActivity {
 
     private void init() {
         //텍스트뷰나 이런 것들 체크처리
+        checkPermssion();
 //        display1 = findViewById(R.id.textView1);
 //        display2 = findViewById(R.id.textView2);
 //
@@ -188,19 +189,19 @@ public class AppToAppActivity extends AppCompatActivity {
 //
 //        button1 = findViewById(R.id.buttonSend1);
 //        button2 = findViewById(R.id.buttonSend2);
+//
+//        button1.setOnClickListener((View v) -> {
+//            byte[] data = editText1.getText().toString().getBytes();
+//            usbService.write(data, 0);
+//
+//        });
+//
+//        button2.setOnClickListener((View v) -> {
+//            byte[] data = editText2.getText().toString().getBytes();
+//            usbService.write(data, 1);
+//        });
 
-        button1.setOnClickListener((View v) -> {
-            byte[] data = editText1.getText().toString().getBytes();
-            usbService.write(data, 0);
-
-        });
-
-        button2.setOnClickListener((View v) -> {
-            byte[] data = editText2.getText().toString().getBytes();
-            usbService.write(data, 1);
-        });
-
-        mHandler = new MyHandler(this);
+//        mHandler = new MyHandler(this);
     }
 
     @Override
@@ -364,10 +365,10 @@ public class AppToAppActivity extends AppCompatActivity {
                     android.Manifest.permission.ACCESS_FINE_LOCATION,
                     android.Manifest.permission.BLUETOOTH_CONNECT,
                     android.Manifest.permission.BLUETOOTH_SCAN,
-                    android.Manifest.permission.ACCESS_MEDIA_LOCATION,
-                    android.Manifest.permission.BLUETOOTH,
+//                    android.Manifest.permission.ACCESS_MEDIA_LOCATION,
+//                    android.Manifest.permission.BLUETOOTH,
                     android.Manifest.permission.INTERNET,
-                    android.Manifest.permission.RECORD_AUDIO
+//                    android.Manifest.permission.RECORD_AUDIO
             };
         } else {
             permissions = new String[]{android.Manifest.permission.CAMERA,
@@ -377,7 +378,7 @@ public class AppToAppActivity extends AppCompatActivity {
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     android.Manifest.permission.BLUETOOTH,
                     android.Manifest.permission.INTERNET,
-                    android.Manifest.permission.RECORD_AUDIO
+//                    android.Manifest.permission.RECORD_AUDIO
             };
         }
 
@@ -436,7 +437,7 @@ public class AppToAppActivity extends AppCompatActivity {
                                     public void run() {
                                         connect(mLeDevices.get(0));
                                     }
-                                },7000);
+                                },2000);
                             }
 
                             return;
@@ -600,6 +601,11 @@ public class AppToAppActivity extends AppCompatActivity {
                                         return;
                                     }
                                     gatt.readCharacteristic(characteristic);
+                                    gatt.setCharacteristicNotification(characteristic, true);
+//                                    UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+//                                    BluetoothGattDescriptor descriptor = characteristic.getDescriptor(uuid);
+//                                    descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+//                                    gatt.writeDescriptor(descriptor);
                                 }
 
                                 if( hasProperty(characteristic, BluetoothGattCharacteristic.PROPERTY_NOTIFY))
@@ -610,6 +616,7 @@ public class AppToAppActivity extends AppCompatActivity {
                                         return;
                                     }
                                     // "Register notification for characteristic : " + characteristic.getUuid());
+                                    gatt.readCharacteristic(characteristic);
                                     gatt.setCharacteristicNotification(characteristic, true);
 
                                     UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
@@ -617,8 +624,25 @@ public class AppToAppActivity extends AppCompatActivity {
                                     descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
                                     gatt.writeDescriptor(descriptor);
                                 }
+
+                                if (hasProperty(characteristic, BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE)) {
+                                    if (ActivityCompat.checkSelfPermission(mCtx, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                                        // TODO: Consider calling
+                                        //    ActivityCompat#requestPermissions
+                                        return;
+                                    }
+                                    // "Register notification for characteristic : " + characteristic.getUuid());
+                                    gatt.setCharacteristicNotification(characteristic, true);
+
+//                                    UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+//                                    BluetoothGattDescriptor descriptor = characteristic.getDescriptor(uuid);
+//                                    descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+//                                    gatt.writeDescriptor(descriptor);
+                                }
                             }
                         }
+
+                        writeDevice();
                     }
                 }
 

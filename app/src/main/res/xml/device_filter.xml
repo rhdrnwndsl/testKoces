@@ -4,7 +4,4 @@
     <usb-device vendor-id="1027" product-id="24597" /> <!-- 0x6015: FT2232H -->
         <usb-device vendor-id="4660" product-id="257" /> <!-- 0x6015: FT2232H -->
     <usb-device vendor-id="1003" product-id="251" />
-    <!--    <usb-device vendor-id="2004" product-id="257" />-->
-    <!--        <usb-device vendor-id="1003" product-id="257" />-->
-    <!--    <usb-device vendor-id="1003" product-id="251" />-->
 </resource>
