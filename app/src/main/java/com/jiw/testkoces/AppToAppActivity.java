@@ -3,6 +3,8 @@ package com.jiw.testkoces;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -10,6 +12,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -33,12 +36,14 @@ import java.util.HashMap;
 public class AppToAppActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-
+private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         Intent intent = new Intent(getIntent());
         HashMap<String, String> mhashMap = (HashMap<String, String>) intent.getSerializableExtra("hashMap");
         int mAppToApp = 0;
@@ -56,6 +61,9 @@ public class AppToAppActivity extends AppCompatActivity {
                         setResult(-100, intent);
 
                         Runtime.getRuntime().gc();
+//                        setContentView(R.layout.activity_main);
+//                        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+//                        setContentView(binding.getRoot());
                         finishAndRemoveTask();
                     }
                 }
@@ -67,8 +75,6 @@ public class AppToAppActivity extends AppCompatActivity {
             mAppToApp = 0;
         }
 
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
         if (binding.appBarMain.fab != null) {
@@ -133,6 +139,22 @@ public class AppToAppActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    /**
+     * 화면 재구성 시 ui 적용
+     */
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) // 세로 전환시
+        { // 배경 화면 교체 처리
+
+        }
+        else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)// 가로 전환시
+        { // 배경 화면 교체 처리 }
+
+        }
     }
     //////////////////////////////
 
