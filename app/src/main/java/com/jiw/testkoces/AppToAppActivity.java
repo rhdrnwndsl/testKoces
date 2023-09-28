@@ -1,7 +1,13 @@
 package com.jiw.testkoces;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Menu;
 
@@ -12,6 +18,8 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
 
 import androidx.navigation.NavController;
+import androidx.navigation.NavGraph;
+import androidx.navigation.NavInflater;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,6 +28,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jiw.testkoces.databinding.ActivityMainBinding;
 
+import java.util.HashMap;
+
 public class AppToAppActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -27,39 +37,90 @@ public class AppToAppActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = new Intent(getIntent());
+        HashMap<String, String> mhashMap = (HashMap<String, String>) intent.getSerializableExtra("hashMap");
+        int mAppToApp = 0;
+        try {
+            mAppToApp = intent.getExtras().getInt("AppToApp");
+            setTheme(R.style.Transparent);
+        }
+        catch (NullPointerException ex)
+        {
+            mAppToApp = 0;
+            setTheme(R.style.Theme_TestKoces_NoActionBar);
+        }
 
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.appBarMain.toolbar);
-        if (binding.appBarMain.fab != null) {
-            binding.appBarMain.fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show());
-        }
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+
+//        setSupportActionBar(binding.appBarMain.toolbar);
+//        if (binding.appBarMain.fab != null) {
+//            binding.appBarMain.fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show());
+//        }
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
         assert navHostFragment != null;
         NavController navController = navHostFragment.getNavController();
+        NavInflater navInflater = navController.getNavInflater();
+        NavGraph navGraph = navInflater.inflate(R.navigation.mobile_navigation);
 
         NavigationView navigationView = binding.navView;
         if (navigationView != null) {
             mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_transparent,
                     R.id.nav_transform, R.id.nav_reflow, R.id.nav_slideshow, R.id.nav_settings)
                     .setOpenableLayout(binding.drawerLayout)
                     .build();
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
             NavigationUI.setupWithNavController(navigationView, navController);
         }
 
         BottomNavigationView bottomNavigationView = binding.appBarMain.contentMain.bottomNavView;
         if (bottomNavigationView != null) {
             mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_transparent,
                     R.id.nav_transform, R.id.nav_reflow, R.id.nav_slideshow)
                     .build();
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
             NavigationUI.setupWithNavController(bottomNavigationView, navController);
         }
 
         ///////////////
+
+//        Intent intent = new Intent(getIntent());
+//        HashMap<String, String> mhashMap = (HashMap<String, String>) intent.getSerializableExtra("hashMap");
+//        int mAppToApp = 0;
+        try {
+            mAppToApp = intent.getExtras().getInt("AppToApp");
+            navGraph.setStartDestination(R.id.nav_transparent);
+            navController.setGraph(navGraph);
+        }
+        catch (NullPointerException ex)
+        {
+            mAppToApp = 0;
+            navGraph.setStartDestination(R.id.nav_transparent);
+            navController.setGraph(navGraph);
+        }
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (mhashMap != null) {
+                    HashMap<String,String> hashMap = new HashMap<String, String>();
+                    hashMap.put("AnsCode","9999");
+                    hashMap.put("Message","testtest");
+                    intent.putExtra("hashMap", hashMap);
+                    setResult(-100, intent);
+
+                    Runtime.getRuntime().gc();
+                    finishAndRemoveTask();
+                }
+            }
+        },5000);
+
+
     }
 
     @Override
