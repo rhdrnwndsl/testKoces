@@ -38,19 +38,48 @@ public class AppToAppActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        Intent intent = new Intent(getIntent());
+        HashMap<String, String> mhashMap = (HashMap<String, String>) intent.getSerializableExtra("hashMap");
+        int mAppToApp = 0;
+        try {
+            mAppToApp = intent.getExtras().getInt("AppToApp");
+            setContentView(R.layout.fragment_transparent);
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (mhashMap != null) {
+                        HashMap<String,String> hashMap = new HashMap<String, String>();
+                        hashMap.put("AnsCode","9999");
+                        hashMap.put("Message","testtest");
+                        intent.putExtra("hashMap", hashMap);
+                        setResult(-100, intent);
+
+                        Runtime.getRuntime().gc();
+                        finishAndRemoveTask();
+                    }
+                }
+            },5000);
+            return;
+        }
+        catch (NullPointerException ex)
+        {
+            mAppToApp = 0;
+        }
+
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        setSupportActionBar(binding.appBarMain.toolbar);
-//        if (binding.appBarMain.fab != null) {
-//            binding.appBarMain.fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show());
-//        }
+        setSupportActionBar(binding.appBarMain.toolbar);
+        if (binding.appBarMain.fab != null) {
+            binding.appBarMain.fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show());
+        }
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
         assert navHostFragment != null;
         NavController navController = navHostFragment.getNavController();
-        NavInflater navInflater = navController.getNavInflater();
-        NavGraph navGraph = navInflater.inflate(R.navigation.mobile_navigation);
+//        NavInflater navInflater = navController.getNavInflater();
+//        NavGraph navGraph = navInflater.inflate(R.navigation.mobile_navigation);
 
         NavigationView navigationView = binding.navView;
         if (navigationView != null) {
@@ -59,7 +88,7 @@ public class AppToAppActivity extends AppCompatActivity {
                     R.id.nav_transform, R.id.nav_reflow, R.id.nav_slideshow, R.id.nav_settings)
                     .setOpenableLayout(binding.drawerLayout)
                     .build();
-//            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
             NavigationUI.setupWithNavController(navigationView, navController);
         }
 
@@ -69,44 +98,11 @@ public class AppToAppActivity extends AppCompatActivity {
                     R.id.nav_transparent,
                     R.id.nav_transform, R.id.nav_reflow, R.id.nav_slideshow)
                     .build();
-//            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
             NavigationUI.setupWithNavController(bottomNavigationView, navController);
         }
 
         ///////////////
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
-        Intent intent = new Intent(getIntent());
-        HashMap<String, String> mhashMap = (HashMap<String, String>) intent.getSerializableExtra("hashMap");
-        int mAppToApp = 0;
-        try {
-            mAppToApp = intent.getExtras().getInt("AppToApp");
-            navGraph.setStartDestination(R.id.nav_transparent);
-            navController.setGraph(navGraph);
-        }
-        catch (NullPointerException ex)
-        {
-            mAppToApp = 0;
-            navGraph.setStartDestination(R.id.nav_transform);
-            navController.setGraph(navGraph);
-        }
-
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (mhashMap != null) {
-                    HashMap<String,String> hashMap = new HashMap<String, String>();
-                    hashMap.put("AnsCode","9999");
-                    hashMap.put("Message","testtest");
-                    intent.putExtra("hashMap", hashMap);
-                    setResult(-100, intent);
-
-                    Runtime.getRuntime().gc();
-                    finishAndRemoveTask();
-                }
-            }
-        },5000);
-
-
     }
 
     @Override
