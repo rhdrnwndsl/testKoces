@@ -37,23 +37,9 @@ public class AppToAppActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(getIntent());
-        HashMap<String, String> mhashMap = (HashMap<String, String>) intent.getSerializableExtra("hashMap");
-        int mAppToApp = 0;
-        try {
-            mAppToApp = intent.getExtras().getInt("AppToApp");
-            setTheme(R.style.Transparent);
-        }
-        catch (NullPointerException ex)
-        {
-            mAppToApp = 0;
-            setTheme(R.style.Theme_TestKoces_NoActionBar);
-        }
 
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 
 //        setSupportActionBar(binding.appBarMain.toolbar);
 //        if (binding.appBarMain.fab != null) {
@@ -88,10 +74,10 @@ public class AppToAppActivity extends AppCompatActivity {
         }
 
         ///////////////
-
-//        Intent intent = new Intent(getIntent());
-//        HashMap<String, String> mhashMap = (HashMap<String, String>) intent.getSerializableExtra("hashMap");
-//        int mAppToApp = 0;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        Intent intent = new Intent(getIntent());
+        HashMap<String, String> mhashMap = (HashMap<String, String>) intent.getSerializableExtra("hashMap");
+        int mAppToApp = 0;
         try {
             mAppToApp = intent.getExtras().getInt("AppToApp");
             navGraph.setStartDestination(R.id.nav_transparent);
@@ -100,7 +86,7 @@ public class AppToAppActivity extends AppCompatActivity {
         catch (NullPointerException ex)
         {
             mAppToApp = 0;
-            navGraph.setStartDestination(R.id.nav_transparent);
+            navGraph.setStartDestination(R.id.nav_transform);
             navController.setGraph(navGraph);
         }
 

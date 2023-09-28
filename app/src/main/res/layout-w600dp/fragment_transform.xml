@@ -7,4 +7,5 @@
     android:layout_height="match_parent"
     app:layoutManager="GridLayoutManager"
     app:spanCount="4"
+    android:background="@color/white"
     tools:context=".ui.transform.TransformFragment" />
