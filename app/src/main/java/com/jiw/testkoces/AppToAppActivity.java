@@ -59,7 +59,6 @@ private ActivityMainBinding binding;
                         hashMap.put("Message","testtest");
                         intent.putExtra("hashMap", hashMap);
                         setResult(-100, intent);
-
                         Runtime.getRuntime().gc();
 //                        setContentView(R.layout.activity_main);
 //                        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
