@@ -86,7 +86,6 @@ private ActivityMainBinding binding;
         NavController navController = navHostFragment.getNavController();
 //        NavInflater navInflater = navController.getNavInflater();
 //        NavGraph navGraph = navInflater.inflate(R.navigation.mobile_navigation);
-
         NavigationView navigationView = binding.navView;
         if (navigationView != null) {
             mAppBarConfiguration = new AppBarConfiguration.Builder(
