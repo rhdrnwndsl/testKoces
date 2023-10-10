@@ -8,15 +8,15 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 
-import com.koces.androidpos.BaseActivity;
-import com.koces.androidpos.CashLoadingActivity;
-import com.koces.androidpos.CreditLoadingActivity;
-import com.koces.androidpos.R;
-import com.koces.androidpos.SignPadActivity;
-import com.koces.androidpos.sdk.SerialPort.SerialInterface;
-import com.koces.androidpos.sdk.db.sqliteDbSdk;
-import com.koces.androidpos.sdk.van.Constants;
-import com.koces.androidpos.sdk.van.TcpInterface;
+import com.jiw.testkoces.BaseActivity;
+import com.jiw.testkoces.CashLoadingActivity;
+import com.jiw.testkoces.CreditLoadingActivity;
+import com.jiw.testkoces.R;
+import com.jiw.testkoces.SignPadActivity;
+import com.jiw.testkoces.sdk.SerialPort.SerialInterface;
+import com.jiw.testkoces.sdk.db.sqliteDbSdk;
+import com.jiw.testkoces.sdk.van.Constants;
+import com.jiw.testkoces.sdk.van.TcpInterface;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;

@@ -5,12 +5,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.koces.androidpos.sdk.Command;
-import com.koces.androidpos.sdk.KByteArray;
-import com.koces.androidpos.sdk.Setting;
-import com.koces.androidpos.sdk.TCPCommand;
-import com.koces.androidpos.sdk.Utils;
-import com.koces.androidpos.sdk.log.LogFile;
+import com.jiw.testkoces.sdk.Command;
+import com.jiw.testkoces.sdk.KByteArray;
+import com.jiw.testkoces.sdk.Setting;
+import com.jiw.testkoces.sdk.TCPCommand;
+import com.jiw.testkoces.sdk.Utils;
+import com.jiw.testkoces.sdk.log.LogFile;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

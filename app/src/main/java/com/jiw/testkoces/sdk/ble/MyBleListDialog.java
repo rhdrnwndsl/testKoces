@@ -18,9 +18,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.koces.androidpos.R;
-import com.koces.androidpos.sdk.Setting;
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.R;
+import com.jiw.testkoces.sdk.Setting;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.util.ArrayList;
 import java.util.HashMap;

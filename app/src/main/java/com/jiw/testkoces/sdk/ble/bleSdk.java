@@ -1,6 +1,6 @@
 package com.jiw.testkoces.sdk.ble;
 
-import static com.koces.androidpos.sdk.ble.bleDevice.STATE_CONNECTED;
+import static com.jiw.testkoces.sdk.ble.bleDevice.STATE_CONNECTED;
 
 import android.Manifest;
 import android.app.Activity;
@@ -20,12 +20,12 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
-import com.koces.androidpos.AppToAppActivity;
-import com.koces.androidpos.sdk.Command;
-import com.koces.androidpos.sdk.Setting;
-import com.koces.androidpos.sdk.Utils;
-import com.koces.androidpos.sdk.ble.BleRepository;
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.AppToAppActivity;
+import com.jiw.testkoces.sdk.Command;
+import com.jiw.testkoces.sdk.Setting;
+import com.jiw.testkoces.sdk.Utils;
+import com.jiw.testkoces.sdk.ble.BleRepository;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -418,8 +418,8 @@ public class bleSdk {
             System.arraycopy(recv,0,mBuffer,buffer.length,recv.length);
         }
 
-        if (mBuffer.length>= com.koces.androidpos.sdk.ble.GattAttributes.SPEC_MIN_SIZE) {
-            if (mBuffer[0] != com.koces.androidpos.sdk.ble.GattAttributes.STX) /* 만약에 버퍼 시작값이 STX가 아닌 경우 전문 이상으로 보고 모든 버퍼를 지운다.*/ {
+        if (mBuffer.length>= com.jiw.testkoces.sdk.ble.GattAttributes.SPEC_MIN_SIZE) {
+            if (mBuffer[0] != com.jiw.testkoces.sdk.ble.GattAttributes.STX) /* 만약에 버퍼 시작값이 STX가 아닌 경우 전문 이상으로 보고 모든 버퍼를 지운다.*/ {
                 mBuffer = null;
             }
 
@@ -431,12 +431,12 @@ public class bleSdk {
             size[0] = mBuffer[1];
             size[1] = mBuffer[2];
             int protlength = Utils.byteToInt(size);
-            if (mBuffer.length >= protlength + com.koces.androidpos.sdk.ble.GattAttributes.SPEC_HEADER_SIZE)
+            if (mBuffer.length >= protlength + com.jiw.testkoces.sdk.ble.GattAttributes.SPEC_HEADER_SIZE)
             {
-                if(mBuffer.length == protlength + com.koces.androidpos.sdk.ble.GattAttributes.SPEC_HEADER_SIZE){
+                if(mBuffer.length == protlength + com.jiw.testkoces.sdk.ble.GattAttributes.SPEC_HEADER_SIZE){
                     mResultLinstener.MessageResultLinstener(mBuffer.clone());
                 }else{
-                    byte[] temp=new byte[protlength + com.koces.androidpos.sdk.ble.GattAttributes.SPEC_HEADER_SIZE];
+                    byte[] temp=new byte[protlength + com.jiw.testkoces.sdk.ble.GattAttributes.SPEC_HEADER_SIZE];
                     System.arraycopy(mBuffer,0,temp,0,temp.length);
                     mResultLinstener.MessageResultLinstener(temp.clone());
                 }

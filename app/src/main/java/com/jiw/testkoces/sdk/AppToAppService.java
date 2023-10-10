@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.koces.androidpos.R;
+import com.jiw.testkoces.R;
 
 /**
  * App to APP 을 Service형태로 올리기 위한 함수<br>

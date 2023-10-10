@@ -24,7 +24,7 @@ import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.koces.androidpos.PopupActivity;
-import com.koces.androidpos.popupInterface;
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.PopupActivity;
+import com.jiw.testkoces.popupInterface;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.util.Queue;
 

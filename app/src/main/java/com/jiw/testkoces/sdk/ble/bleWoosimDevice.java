@@ -8,8 +8,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.koces.androidpos.R;
-import com.koces.androidpos.sdk.Setting;
+import com.jiw.testkoces.R;
+import com.jiw.testkoces.sdk.Setting;
 
 import java.io.IOException;
 import java.io.InputStream;

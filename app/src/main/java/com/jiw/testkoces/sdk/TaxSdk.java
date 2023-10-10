@@ -1,6 +1,6 @@
 package com.jiw.testkoces.sdk;
 
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.util.HashMap;
 

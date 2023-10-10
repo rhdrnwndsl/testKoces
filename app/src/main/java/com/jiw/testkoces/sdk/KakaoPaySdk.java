@@ -1,4 +1,4 @@
-package com.jiw.testkoces.sdk;//package com.koces.androidpos.sdk;
+package com.jiw.testkoces.sdk;//package com.jiw.testkoces.sdk;
 //
 //public class KakaoPaySdk {
 ////

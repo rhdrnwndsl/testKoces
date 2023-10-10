@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.koces.androidpos.sdk.ble.bleSdk;
+import com.jiw.testkoces.sdk.ble.bleSdk;
 
 public class ForecdTerminationService extends Service {
 

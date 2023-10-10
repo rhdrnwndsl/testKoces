@@ -1,11 +1,11 @@
 package com.jiw.testkoces.sdk;
 
-import static com.koces.androidpos.sdk.Utils.intTo2ByteArray;
-import static com.koces.androidpos.sdk.Utils.makeLRC;
+import static com.jiw.testkoces.sdk.Utils.intTo2ByteArray;
+import static com.jiw.testkoces.sdk.Utils.makeLRC;
 
 import android.graphics.Bitmap;
 
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;

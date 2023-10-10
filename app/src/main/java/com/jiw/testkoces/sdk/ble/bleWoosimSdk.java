@@ -7,8 +7,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 
-import com.koces.androidpos.sdk.Setting;
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.sdk.Setting;
+import com.jiw.testkoces.sdk.van.Constants;
 import com.woosim.printer.WoosimCmd;
 import com.woosim.printer.WoosimService;
 

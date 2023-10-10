@@ -16,10 +16,10 @@
 
 package com.jiw.testkoces.sdk.ble;
 
-import static com.koces.androidpos.sdk.ble.GattAttributes.BLE_NOTIFY;
-import static com.koces.androidpos.sdk.ble.GattAttributes.BLE_RX;
-import static com.koces.androidpos.sdk.ble.GattAttributes.BLE_TRAN;
-import static com.koces.androidpos.sdk.ble.GattAttributes.BLE_TX;
+import static com.jiw.testkoces.sdk.ble.GattAttributes.BLE_NOTIFY;
+import static com.jiw.testkoces.sdk.ble.GattAttributes.BLE_RX;
+import static com.jiw.testkoces.sdk.ble.GattAttributes.BLE_TRAN;
+import static com.jiw.testkoces.sdk.ble.GattAttributes.BLE_TX;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
@@ -42,13 +42,13 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.koces.androidpos.sdk.Command;
-import com.koces.androidpos.sdk.Setting;
-import com.koces.androidpos.sdk.Utils;
-import com.koces.androidpos.sdk.ble.BleInterface;
-import com.koces.androidpos.sdk.ble.GattAttributes;
-import com.koces.androidpos.sdk.ble.bleDevice;
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.sdk.Command;
+import com.jiw.testkoces.sdk.Setting;
+import com.jiw.testkoces.sdk.Utils;
+import com.jiw.testkoces.sdk.ble.BleInterface;
+import com.jiw.testkoces.sdk.ble.GattAttributes;
+import com.jiw.testkoces.sdk.ble.bleDevice;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.util.List;
 import java.util.UUID;
@@ -61,7 +61,7 @@ import java.util.UUID;
 public class BluetoothLeService extends Service {
     private final static String TAG = BluetoothLeService.class.getSimpleName();
 
-    private static com.koces.androidpos.sdk.ble.BleInterface.ResultLinstener mResultLinstener;
+    private static com.jiw.testkoces.sdk.ble.BleInterface.ResultLinstener mResultLinstener;
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
     private String mBluetoothDeviceAddress;
@@ -84,7 +84,7 @@ public class BluetoothLeService extends Service {
     public final static String EXTRA_DATA =
             "com.example.bluetooth.le.EXTRA_DATA";
 
-    public final static UUID TRANS_TX = UUID.fromString(com.koces.androidpos.sdk.ble.GattAttributes.TRANS_TX);
+    public final static UUID TRANS_TX = UUID.fromString(com.jiw.testkoces.sdk.ble.GattAttributes.TRANS_TX);
     // Implements callback methods for GATT events that the app cares about.  For example,
     // connection change and services discovered.
 
@@ -108,8 +108,8 @@ public class BluetoothLeService extends Service {
 //                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
 //                    @Override
 //                    public void run() {
-//                        Log.i(TAG, "isSetMtuMode = " + com.koces.androidpos.sdk.ble.bleDevice.Mtu);
-//                        isSetMtuMode = gatt.requestMtu(com.koces.androidpos.sdk.ble.bleDevice.Mtu);
+//                        Log.i(TAG, "isSetMtuMode = " + com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
+//                        isSetMtuMode = gatt.requestMtu(com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
 //                    }
 //                },1000);
 
@@ -162,12 +162,12 @@ public class BluetoothLeService extends Service {
 ////                mConnectionState = STATE_CONNECTED;
 ////                //kim.jy 20191021
 ////                //TODO: 여기서 아래의 Mtu 에다가 다른 값을 보내주거나 해본다.  by.jiw
-////                com.koces.androidpos.sdk.ble.bleDevice.Mtu = 150;
+////                com.jiw.testkoces.sdk.ble.bleDevice.Mtu = 150;
 ////                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
 ////                    @Override
 ////                    public void run() {
-////                        Log.i(TAG, "TryisSetMtuMode = " + com.koces.androidpos.sdk.ble.bleDevice.Mtu);
-////                        isSetMtuMode = gatt.requestMtu(com.koces.androidpos.sdk.ble.bleDevice.Mtu);
+////                        Log.i(TAG, "TryisSetMtuMode = " + com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
+////                        isSetMtuMode = gatt.requestMtu(com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
 ////                    }
 ////                },1000);
 //            }
@@ -185,7 +185,7 @@ public class BluetoothLeService extends Service {
 //                } catch (InterruptedException e) {
 //                    e.printStackTrace();
 //                }
-                if(com.koces.androidpos.sdk.ble.GattAttributes.mBleModelType==40) {
+                if(com.jiw.testkoces.sdk.ble.GattAttributes.mBleModelType==40) {
                     BluetoothGattCharacteristic ch = gatt.getService(BLE_TRAN).getCharacteristic(BLE_NOTIFY);
                     gatt.setCharacteristicNotification(ch, true);
 
@@ -196,9 +196,9 @@ public class BluetoothLeService extends Service {
                     public void run() {
                         for(BluetoothGattService s:bSerivce)
                         {
-                            if(s.getUuid().equals(com.koces.androidpos.sdk.ble.GattAttributes.BLE_TRAN))
+                            if(s.getUuid().equals(com.jiw.testkoces.sdk.ble.GattAttributes.BLE_TRAN))
                             {
-                                if(com.koces.androidpos.sdk.ble.GattAttributes.mBleModelType==30) {
+                                if(com.jiw.testkoces.sdk.ble.GattAttributes.mBleModelType==30) {
                                     BluetoothGattCharacteristic characteristic[] = {s.getCharacteristic(BLE_NOTIFY)};
                                     setCharacteristicNotification(characteristic,true);
                                     return;
@@ -213,14 +213,14 @@ public class BluetoothLeService extends Service {
                         }
 
 //                        //sjw 221110 추가
-//                        com.koces.androidpos.sdk.ble.bleDevice.Mtu = 150;
-//                        Log.i(TAG, "TryisSetMtuMode = " + com.koces.androidpos.sdk.ble.bleDevice.Mtu);
-//                        isSetMtuMode = gatt.requestMtu(com.koces.androidpos.sdk.ble.bleDevice.Mtu);
+//                        com.jiw.testkoces.sdk.ble.bleDevice.Mtu = 150;
+//                        Log.i(TAG, "TryisSetMtuMode = " + com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
+//                        isSetMtuMode = gatt.requestMtu(com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
 
                         if(Setting.getBleName().contains(Constants.C1_KRE_NEW)) {
-                            com.koces.androidpos.sdk.ble.bleDevice.Mtu = 150;
-                            Log.i(TAG, "TryisSetMtuMode = " + com.koces.androidpos.sdk.ble.bleDevice.Mtu);
-                            isSetMtuMode = mBluetoothGatt.requestMtu(com.koces.androidpos.sdk.ble.bleDevice.Mtu);
+                            com.jiw.testkoces.sdk.ble.bleDevice.Mtu = 150;
+                            Log.i(TAG, "TryisSetMtuMode = " + com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
+                            isSetMtuMode = mBluetoothGatt.requestMtu(com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
                         }
                     }
                 }, 500);
@@ -312,8 +312,8 @@ public class BluetoothLeService extends Service {
             System.arraycopy(recv,0,mBuffer,buffer.length,recv.length);
         }
 
-        if (mBuffer.length>= com.koces.androidpos.sdk.ble.GattAttributes.SPEC_MIN_SIZE) {
-            if (mBuffer[0] != com.koces.androidpos.sdk.ble.GattAttributes.STX) /* 만약에 버퍼 시작값이 STX가 아닌 경우 전문 이상으로 보고 모든 버퍼를 지운다.*/ {
+        if (mBuffer.length>= com.jiw.testkoces.sdk.ble.GattAttributes.SPEC_MIN_SIZE) {
+            if (mBuffer[0] != com.jiw.testkoces.sdk.ble.GattAttributes.STX) /* 만약에 버퍼 시작값이 STX가 아닌 경우 전문 이상으로 보고 모든 버퍼를 지운다.*/ {
                 mBuffer = null;
             }
 
@@ -325,12 +325,12 @@ public class BluetoothLeService extends Service {
             size[0] = mBuffer[1];
             size[1] = mBuffer[2];
             int protlength = Utils.byteToInt(size);
-            if (mBuffer.length >= protlength + com.koces.androidpos.sdk.ble.GattAttributes.SPEC_HEADER_SIZE)
+            if (mBuffer.length >= protlength + com.jiw.testkoces.sdk.ble.GattAttributes.SPEC_HEADER_SIZE)
             {
-                if(mBuffer.length == protlength + com.koces.androidpos.sdk.ble.GattAttributes.SPEC_HEADER_SIZE){
+                if(mBuffer.length == protlength + com.jiw.testkoces.sdk.ble.GattAttributes.SPEC_HEADER_SIZE){
                     mResultLinstener.MessageResultLinstener(mBuffer.clone());
                 }else{
-                    byte[] temp=new byte[protlength + com.koces.androidpos.sdk.ble.GattAttributes.SPEC_HEADER_SIZE];
+                    byte[] temp=new byte[protlength + com.jiw.testkoces.sdk.ble.GattAttributes.SPEC_HEADER_SIZE];
                     System.arraycopy(mBuffer,0,temp,0,temp.length);
                     mResultLinstener.MessageResultLinstener(temp.clone());
                 }
@@ -376,7 +376,7 @@ public class BluetoothLeService extends Service {
         */
 
         //2020년 9월 28일 kim.jy 장치 별로 올라오는 notify 가 다르기 때문에 분기 한다.
-        if(com.koces.androidpos.sdk.ble.GattAttributes.mBleModelType==10){
+        if(com.jiw.testkoces.sdk.ble.GattAttributes.mBleModelType==10){
             if(BLE_NOTIFY==null) {
                 //ble notify uuid 가 설정 되지 않는 경우에 어떻게 처리 할지 결정 해야 한다.
             }
@@ -386,7 +386,7 @@ public class BluetoothLeService extends Service {
                 RecvDataUpdate(data);
             }
         }
-        else if(com.koces.androidpos.sdk.ble.GattAttributes.mBleModelType==20){
+        else if(com.jiw.testkoces.sdk.ble.GattAttributes.mBleModelType==20){
             if(BLE_NOTIFY==null)
             {
                 //ble notify uuid 가 설정 되지 않는 경우에 어떻게 처리 할지 결정 해야 한다.
@@ -397,7 +397,7 @@ public class BluetoothLeService extends Service {
                 RecvDataUpdate(data);
             }
         }
-        else if(com.koces.androidpos.sdk.ble.GattAttributes.mBleModelType==30){
+        else if(com.jiw.testkoces.sdk.ble.GattAttributes.mBleModelType==30){
             if(BLE_NOTIFY==null)
             {
                 //ble notify uuid 가 설정 되지 않는 경우에 어떻게 처리 할지 결정 해야 한다.
@@ -411,7 +411,7 @@ public class BluetoothLeService extends Service {
         else{
             if(BLE_RX==null)
             {
-                BLE_RX = UUID.fromString(com.koces.androidpos.sdk.ble.GattAttributes.TRANS_TX);
+                BLE_RX = UUID.fromString(com.jiw.testkoces.sdk.ble.GattAttributes.TRANS_TX);
             }
             if (BLE_RX.equals(characteristic.getUuid()))
             {
@@ -627,7 +627,7 @@ public class BluetoothLeService extends Service {
                     Log.d(TAG," mBluetoothGatt.characteristic is null");
                     return;
                 }
-                if(com.koces.androidpos.sdk.ble.GattAttributes.mBleModelType==10) {  //payfun 의 경우
+                if(com.jiw.testkoces.sdk.ble.GattAttributes.mBleModelType==10) {  //payfun 의 경우
                     if (BLE_NOTIFY.equals(finalCharacteristic.getUuid())) {
 //                BluetoothGattDescriptor descriptor = characteristic.getDescriptor(GattAttributes.BLE_CHARACTERISTIC_CONFIG);
 //                descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
@@ -637,9 +637,9 @@ public class BluetoothLeService extends Service {
 //                }
 
                     }
-                } else if(com.koces.androidpos.sdk.ble.GattAttributes.mBleModelType==20) { //아폴로3? 의 경우
+                } else if(com.jiw.testkoces.sdk.ble.GattAttributes.mBleModelType==20) { //아폴로3? 의 경우
                     if (BLE_TX.equals(finalCharacteristic.getUuid())) {
-                        BluetoothGattDescriptor descriptor = finalCharacteristic.getDescriptor(com.koces.androidpos.sdk.ble.GattAttributes.BLE_CHARACTERISTIC_CONFIG);
+                        BluetoothGattDescriptor descriptor = finalCharacteristic.getDescriptor(com.jiw.testkoces.sdk.ble.GattAttributes.BLE_CHARACTERISTIC_CONFIG);
                         descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
                         if (descriptor == null) {
                             Log.d(TAG," descriptor is null");
@@ -650,9 +650,9 @@ public class BluetoothLeService extends Service {
                             Log.d(TAG, "mBluetoothGatt.writeDescriptor(ble_rx) : false");
                         }
                     }
-                } else if(com.koces.androidpos.sdk.ble.GattAttributes.mBleModelType==30) {
+                } else if(com.jiw.testkoces.sdk.ble.GattAttributes.mBleModelType==30) {
                     if (BLE_RX.equals(finalCharacteristic.getUuid())) {
-                        BluetoothGattDescriptor descriptor = finalCharacteristic.getDescriptor(com.koces.androidpos.sdk.ble.GattAttributes.BLE_CHARACTERISTIC_CONFIG);
+                        BluetoothGattDescriptor descriptor = finalCharacteristic.getDescriptor(com.jiw.testkoces.sdk.ble.GattAttributes.BLE_CHARACTERISTIC_CONFIG);
                         descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
                         if (descriptor == null) {
                             Log.d(TAG," descriptor is null");
@@ -681,9 +681,9 @@ public class BluetoothLeService extends Service {
 
                 //                        //sjw 221110 추가
 //                if(Setting.getBleName().contains(Constants.C1_KRE_NEW)) {
-//                    com.koces.androidpos.sdk.ble.bleDevice.Mtu = 150;
-//                    Log.i(TAG, "TryisSetMtuMode = " + com.koces.androidpos.sdk.ble.bleDevice.Mtu);
-//                    isSetMtuMode = mBluetoothGatt.requestMtu(com.koces.androidpos.sdk.ble.bleDevice.Mtu);
+//                    com.jiw.testkoces.sdk.ble.bleDevice.Mtu = 150;
+//                    Log.i(TAG, "TryisSetMtuMode = " + com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
+//                    isSetMtuMode = mBluetoothGatt.requestMtu(com.jiw.testkoces.sdk.ble.bleDevice.Mtu);
 //                }
             }
         }, 500);

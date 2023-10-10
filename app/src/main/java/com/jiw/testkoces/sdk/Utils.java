@@ -1,10 +1,10 @@
 package com.jiw.testkoces.sdk;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
-import static com.koces.androidpos.sdk.Command.F_CONTROL_DATA_LEN_EXCLUDE_NOT_DATA;
-import static com.koces.androidpos.sdk.Command.F_CONTROL_DAT_BYTE;
-import static com.koces.androidpos.sdk.Command.T_CONTROL_DATA_LEN_EXCLUDE_NOT_DATA;
-import static com.koces.androidpos.sdk.Command.T_CONTROL_DAT_BYTE;
+import static com.jiw.testkoces.sdk.Command.F_CONTROL_DATA_LEN_EXCLUDE_NOT_DATA;
+import static com.jiw.testkoces.sdk.Command.F_CONTROL_DAT_BYTE;
+import static com.jiw.testkoces.sdk.Command.T_CONTROL_DATA_LEN_EXCLUDE_NOT_DATA;
+import static com.jiw.testkoces.sdk.Command.T_CONTROL_DAT_BYTE;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -17,7 +17,7 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
@@ -1205,7 +1205,7 @@ public class Utils {
             cipher = Cipher.getInstance("AES/CFB/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
             byte[]  Str2 =cipher.doFinal(encrypted);
-            byte[] byteT = com.koces.androidpos.org.apache.commons.net.util.Base64.decodeBase64(encrypted);
+            byte[] byteT = com.jiw.testkoces.org.apache.commons.net.util.Base64.decodeBase64(encrypted);
             byte[] byteT2 = com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.codec.binary.Base64.decodeBase64(encrypted);
 
             byte[] byteStr = org.apache.commons.codec.binary.Base64.decodeBase64(encrypted);

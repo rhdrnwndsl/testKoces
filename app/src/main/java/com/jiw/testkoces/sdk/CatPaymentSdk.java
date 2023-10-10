@@ -5,15 +5,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import com.koces.androidpos.AppToAppActivity;
-import com.koces.androidpos.BaseActivity;
-import com.koces.androidpos.CashLoadingActivity;
-import com.koces.androidpos.CreditLoadingActivity;
-import com.koces.androidpos.sdk.SerialPort.SerialInterface;
-import com.koces.androidpos.sdk.db.sqliteDbSdk;
-import com.koces.androidpos.sdk.van.CatNetworkInterface;
-import com.koces.androidpos.sdk.van.Constants;
-import com.koces.androidpos.sdk.van.KocesTcpClient;
+import com.jiw.testkoces.AppToAppActivity;
+import com.jiw.testkoces.BaseActivity;
+import com.jiw.testkoces.CashLoadingActivity;
+import com.jiw.testkoces.CreditLoadingActivity;
+import com.jiw.testkoces.sdk.SerialPort.SerialInterface;
+import com.jiw.testkoces.sdk.db.sqliteDbSdk;
+import com.jiw.testkoces.sdk.van.CatNetworkInterface;
+import com.jiw.testkoces.sdk.van.Constants;
+import com.jiw.testkoces.sdk.van.KocesTcpClient;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;

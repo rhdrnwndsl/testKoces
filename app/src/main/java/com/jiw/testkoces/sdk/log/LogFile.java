@@ -12,9 +12,9 @@ import android.util.Base64;
 
 import androidx.core.app.ActivityCompat;
 
-import com.koces.androidpos.sdk.Setting;
-import com.koces.androidpos.sdk.Utils;
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.sdk.Setting;
+import com.jiw.testkoces.sdk.Utils;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

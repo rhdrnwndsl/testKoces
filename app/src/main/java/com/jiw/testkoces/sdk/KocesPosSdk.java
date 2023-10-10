@@ -1,11 +1,11 @@
 package com.jiw.testkoces.sdk;
 
-import static com.koces.androidpos.sdk.ble.bleWoosimSdk.MESSAGE_CONNECTED_FAIL;
-import static com.koces.androidpos.sdk.ble.bleWoosimSdk.MESSAGE_CONNECTED_TIMEOUT;
-import static com.koces.androidpos.sdk.ble.bleWoosimSdk.MESSAGE_DEVICE_NAME;
-import static com.koces.androidpos.sdk.ble.bleWoosimSdk.MESSAGE_READ;
-import static com.koces.androidpos.sdk.ble.bleWoosimSdk.MESSAGE_TOAST;
-import static com.koces.androidpos.sdk.ble.bleWoosimSdk.TOAST;
+import static com.jiw.testkoces.sdk.ble.bleWoosimSdk.MESSAGE_CONNECTED_FAIL;
+import static com.jiw.testkoces.sdk.ble.bleWoosimSdk.MESSAGE_CONNECTED_TIMEOUT;
+import static com.jiw.testkoces.sdk.ble.bleWoosimSdk.MESSAGE_DEVICE_NAME;
+import static com.jiw.testkoces.sdk.ble.bleWoosimSdk.MESSAGE_READ;
+import static com.jiw.testkoces.sdk.ble.bleWoosimSdk.MESSAGE_TOAST;
+import static com.jiw.testkoces.sdk.ble.bleWoosimSdk.TOAST;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -21,28 +21,28 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.koces.androidpos.AppToAppActivity;
-import com.koces.androidpos.BaseActivity;
-import com.koces.androidpos.Main2Activity;
-import com.koces.androidpos.PopupActivity;
-import com.koces.androidpos.sdk.Devices.AutoDetectDevices;
-import com.koces.androidpos.sdk.Devices.Devices;
-import com.koces.androidpos.sdk.SerialPort.FTDISerial;
-import com.koces.androidpos.sdk.SerialPort.KocesSerial;
-import com.koces.androidpos.sdk.SerialPort.SerialInterface;
-import com.koces.androidpos.sdk.ble.GattAttributes;
-import com.koces.androidpos.sdk.ble.bleSdk;
-import com.koces.androidpos.sdk.ble.bleSdkInterface;
-import com.koces.androidpos.sdk.ble.bleWoosimInterface;
-import com.koces.androidpos.sdk.ble.bleWoosimSdk;
-import com.koces.androidpos.sdk.db.sqliteDbSdk;
-import com.koces.androidpos.sdk.db.sqliteDbSdk.DBTradeResult;
-import com.koces.androidpos.sdk.van.CatNetworkInterface;
-import com.koces.androidpos.sdk.van.Constants;
-import com.koces.androidpos.sdk.van.KocesTcpClient;
-import com.koces.androidpos.sdk.van.NetworkInterface;
-import com.koces.androidpos.sdk.van.TcpInterface;
-import com.koces.androidpos.sdk.van.TmpNetworkInterface;
+import com.jiw.testkoces.AppToAppActivity;
+import com.jiw.testkoces.BaseActivity;
+import com.jiw.testkoces.Main2Activity;
+import com.jiw.testkoces.PopupActivity;
+import com.jiw.testkoces.sdk.Devices.AutoDetectDevices;
+import com.jiw.testkoces.sdk.Devices.Devices;
+import com.jiw.testkoces.sdk.SerialPort.FTDISerial;
+import com.jiw.testkoces.sdk.SerialPort.KocesSerial;
+import com.jiw.testkoces.sdk.SerialPort.SerialInterface;
+import com.jiw.testkoces.sdk.ble.GattAttributes;
+import com.jiw.testkoces.sdk.ble.bleSdk;
+import com.jiw.testkoces.sdk.ble.bleSdkInterface;
+import com.jiw.testkoces.sdk.ble.bleWoosimInterface;
+import com.jiw.testkoces.sdk.ble.bleWoosimSdk;
+import com.jiw.testkoces.sdk.db.sqliteDbSdk;
+import com.jiw.testkoces.sdk.db.sqliteDbSdk.DBTradeResult;
+import com.jiw.testkoces.sdk.van.CatNetworkInterface;
+import com.jiw.testkoces.sdk.van.Constants;
+import com.jiw.testkoces.sdk.van.KocesTcpClient;
+import com.jiw.testkoces.sdk.van.NetworkInterface;
+import com.jiw.testkoces.sdk.van.TcpInterface;
+import com.jiw.testkoces.sdk.van.TmpNetworkInterface;
 import com.woosim.printer.WoosimService;
 
 import java.io.UnsupportedEncodingException;

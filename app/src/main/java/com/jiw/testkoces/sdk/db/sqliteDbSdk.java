@@ -7,12 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
-import com.koces.androidpos.sdk.Command;
-import com.koces.androidpos.sdk.KocesPosSdk;
-import com.koces.androidpos.sdk.Setting;
-import com.koces.androidpos.sdk.TaxSdk;
-import com.koces.androidpos.sdk.Utils;
-import com.koces.androidpos.sdk.van.Constants;
+import com.jiw.testkoces.sdk.Command;
+import com.jiw.testkoces.sdk.KocesPosSdk;
+import com.jiw.testkoces.sdk.Setting;
+import com.jiw.testkoces.sdk.TaxSdk;
+import com.jiw.testkoces.sdk.Utils;
+import com.jiw.testkoces.sdk.van.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

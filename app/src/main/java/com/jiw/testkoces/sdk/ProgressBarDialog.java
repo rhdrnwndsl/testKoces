@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.koces.androidpos.R;
+import com.jiw.testkoces.R;
 
 public class ProgressBarDialog extends Dialog {
      ProgressBar mProgressBar;
