@@ -1,4 +1,4 @@
-package com.jiw.testkoces.ui.transform;
+package com.jiw.androidpos.ui.transform;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jiw.testkoces.R;
-import com.jiw.testkoces.databinding.FragmentTransformBinding;
-import com.jiw.testkoces.databinding.ItemTransformBinding;
+import com.jiw.androidpos.R;
+import com.jiw.androidpos.databinding.FragmentTransformBinding;
+import com.jiw.androidpos.databinding.ItemTransformBinding;
 
 import java.util.Arrays;
 import java.util.List;

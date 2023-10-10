@@ -1,4 +1,4 @@
-package com.jiw.testkoces;
+package com.jiw.androidpos;
 
 import android.content.Context;
 

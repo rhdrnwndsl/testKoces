@@ -1,18 +1,14 @@
-package com.jiw.testkoces;
+package com.jiw.androidpos;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.Menu;
-import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,15 +17,13 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
 
 import androidx.navigation.NavController;
-import androidx.navigation.NavGraph;
-import androidx.navigation.NavInflater;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jiw.testkoces.databinding.ActivityMainBinding;
+import com.jiw.androidpos.databinding.ActivityMainBinding;
 
 import java.util.HashMap;
 

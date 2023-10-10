@@ -1,4 +1,4 @@
-package com.jiw.testkoces.ui.transparent;
+package com.jiw.androidpos.ui.transparent;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

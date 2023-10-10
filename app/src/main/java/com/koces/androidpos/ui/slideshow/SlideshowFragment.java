@@ -1,4 +1,4 @@
-package com.jiw.testkoces.ui.transparent;
+package com.jiw.androidpos.ui.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.jiw.testkoces.databinding.FragmentTransparentBinding;
+import com.jiw.androidpos.databinding.FragmentSlideshowBinding;
 
-public class TransparentFragment extends Fragment {
+public class SlideshowFragment extends Fragment {
 
-    private FragmentTransparentBinding binding;
+    private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        TransparentViewModel transparentViewModel =
-                new ViewModelProvider(this).get(TransparentViewModel.class);
+        SlideshowViewModel slideshowViewModel =
+                new ViewModelProvider(this).get(SlideshowViewModel.class);
 
-        binding = FragmentTransparentBinding.inflate(inflater, container, false);
+        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textTransparent;
-        transparentViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textSlideshow;
+        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.jiw.testkoces'
+    namespace 'com.koces.androidpos'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.jiw.testkoces"
+        applicationId "com.koces.androidpos"
         minSdk 24
         targetSdk 33
         versionCode 1
