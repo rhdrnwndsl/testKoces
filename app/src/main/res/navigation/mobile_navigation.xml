@@ -28,7 +28,6 @@
         android:name="com.jiw.testkoces.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
-
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.jiw.testkoces.ui.settings.SettingsFragment"
